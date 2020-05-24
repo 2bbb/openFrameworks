@@ -452,7 +452,9 @@ std::unique_ptr<T> make_unique(Args&&... args) {
                 using v1::__cxx11::path;
             }
         }
-        namespace filesystem = experimental::filesystem;
+    }
+    namespace of {
+        namespace filesystem = std::experimental::filesystem;
     }
 #	else
 #       define OF_USE_EXPERIMENTAL_FS 0
@@ -462,6 +464,9 @@ std::unique_ptr<T> make_unique(Args&&... args) {
 			class path;
 		}
 	}
+    namespace of {
+        namespace filesystem = std::filesystem;
+    }
 #	endif
 #else
 #	if !_MSC_VER
@@ -473,7 +478,7 @@ std::unique_ptr<T> make_unique(Args&&... args) {
 			class path;
 		}
 	}
-	namespace std {
+	namespace of {
 		namespace filesystem = boost::filesystem;
 	}
 #endif

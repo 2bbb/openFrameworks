@@ -6,9 +6,6 @@
 #if OF_USING_STD_FS
 #	if __cplusplus < 201703L
 #		include <experimental/filesystem>
-		namespace std {
-			namespace filesystem = experimental::filesystem;
-		}
 #	else
 #		include <filesystem>
 #	endif
@@ -18,9 +15,6 @@
 #		define BOOST_NO_SCOPED_ENUMS
 #	endif
 #	include <boost/filesystem.hpp>
-	namespace std {
-		namespace filesystem = boost::filesystem;
-	}
 #endif
 
 //----------------------------------------------------------
